@@ -1000,6 +1000,10 @@ MonoBehaviour:
   eventlist: []
   leftHandIn: 0
   rightHandIn: 0
+  firstOut: 0
+  SecondOut: 0
+  candleIsIn: 0
+  bookIsIn: 0
 --- !u!4 &1129409546
 Transform:
   m_ObjectHideFlags: 0

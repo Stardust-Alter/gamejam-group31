@@ -56,12 +56,14 @@
      <Compile Include="Assets\Scripts\ButterFly.cs" />
      <Compile Include="Assets\Scripts\EventManagement.cs" />
      <Compile Include="Assets\Scripts\FirstWindEvent.cs" />
+     <Compile Include="Assets\Scripts\FourthEvent.cs" />
      <Compile Include="Assets\Scripts\GameManagement.cs" />
      <Compile Include="Assets\Scripts\Hand.cs" />
      <Compile Include="Assets\Scripts\HappenEvent.cs" />
      <Compile Include="Assets\Scripts\LeftHandInCandle.cs" />
      <Compile Include="Assets\Scripts\RightHandInCandle.cs" />
      <Compile Include="Assets\Scripts\SecondWindEvent.cs" />
+     <Compile Include="Assets\Scripts\ThirdEvent.cs" />
      <Compile Include="Assets\Scripts\WayPoint.cs" />
      <Compile Include="Assets\Scripts\WindowScripts.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">

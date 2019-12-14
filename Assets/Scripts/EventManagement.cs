@@ -13,6 +13,11 @@ public class EventManagement : MonoBehaviour
 
     public bool leftHandIn = false;
     public bool rightHandIn = false;
+    public bool firstOut = false;
+    public bool SecondOut = false;
+    public bool candleIsIn = false;
+    public bool bookIsIn = false;
+
 
     void Awake()
     {
@@ -23,6 +28,8 @@ public class EventManagement : MonoBehaviour
     {
         eventlist.Add(GameObject.Find("Event1").GetComponent<HappenEvent>());
         eventlist.Add(GameObject.Find("Event2").GetComponent<HappenEvent>());
+        //TODO 添加第三个关卡
+        //TODO 添加第四个关卡
         StartCoroutine(Corutine_Wait(5));
     }
 
