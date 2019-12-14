@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManagement : MonoBehaviour
 {
     public static GameManagement _Instance;
+    
 
     public Light candle_light;
 
@@ -13,7 +14,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField]
     private float health = 4;
     [SerializeField]
-    private float floatbrightness;
+    private float floatbrightness=0.1f;
 
     public float Health
     {
@@ -23,6 +24,10 @@ public class GameManagement : MonoBehaviour
         }
         set
         {
+            if(value>4)
+            {
+                value = 4;
+            }
             health = value;
             ChangeBrightness();
             if (health<=0)
@@ -51,7 +56,7 @@ public class GameManagement : MonoBehaviour
 
     public void GetHurt(float hurt)
     {
-        Health = -hurt;
+        Health-= hurt;
     }
 
     private void ChangeBrightness()
@@ -78,9 +83,12 @@ public class GameManagement : MonoBehaviour
         }
     }
 
+    public void RecoverHealth(float cover)
+    {
+        Health += cover;
+    }
 
-
-    void GameOver()
+    public void GameOver()
     {
         //TODO       
     }
@@ -88,6 +96,11 @@ public class GameManagement : MonoBehaviour
     void LightFlame()
     {
         candle_light.intensity = Random.Range(brightness+ floatbrightness, brightness- floatbrightness);
+    }
+
+    public void GameWin()
+    {
+
     }
 
 }

@@ -46,6 +46,7 @@ public class Hand : MonoBehaviour
 
     void MouseFollow()
     {
+        screenPosition = Camera.main.WorldToScreenPoint(selectedHand.position);
         mousePositionOnScreen = Input.mousePosition;
         mousePositionOnScreen.z = screenPosition.z;
         mousePositionInWorld = Camera.main.ScreenToWorldPoint(mousePositionOnScreen);
@@ -75,4 +76,6 @@ public class Hand : MonoBehaviour
         selectedHand = rightHand;
         SetMouseToScreenPosition();
     }
+
+
 }
