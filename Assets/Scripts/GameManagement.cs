@@ -6,9 +6,16 @@ public class GameManagement : MonoBehaviour
 {
     public static GameManagement _Instance;
 
-    private int health = 100;
+    public Light candle_light;
 
-    public int Health
+    [SerializeField]
+    private float brightness=0.1f;
+    [SerializeField]
+    private float health = 4;
+    [SerializeField]
+    private float floatbrightness;
+
+    public float Health
     {
         get
         {
@@ -17,7 +24,8 @@ public class GameManagement : MonoBehaviour
         set
         {
             health = value;
-            if(health<=0)
+            ChangeBrightness();
+            if (health<=0)
             {
                 GameOver();
             }
@@ -32,22 +40,54 @@ public class GameManagement : MonoBehaviour
 
     void Start()
     {
-        
+        brightness = candle_light.intensity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        LightFlame();
     }
 
-    void GetHurt(int hurt)
+    public void GetHurt(float hurt)
     {
-        health = -hurt;
+        Health = -hurt;
     }
+
+    private void ChangeBrightness()
+    {
+        if (Health<=4&&Health>3)
+        {
+            brightness = 1.6f;
+        }
+        if (Health <=3 && Health > 2)
+        {
+            brightness = 1.4f;
+        }
+        if (Health <=2 && Health > 1)
+        {
+            brightness = 0.8f;
+        }
+        if (Health <= 1 && Health > 0)
+        {
+            brightness = 0.4f;
+        }
+        if (Health== 0)
+        {
+            brightness = 0;
+        }
+    }
+
+
 
     void GameOver()
     {
         //TODO       
     }
+
+    void LightFlame()
+    {
+        candle_light.intensity = Random.Range(brightness+ floatbrightness, brightness- floatbrightness);
+    }
+
 }
