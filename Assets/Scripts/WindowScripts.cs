@@ -19,7 +19,10 @@ public class WindowScripts : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentAngle = transform.rotation.eulerAngles.y;
         if (currentAngle < angleRotateMax)
             transform.RotateAround(rotateAxie.transform.position, rotateAxie.transform.up, rotateSpeed * Time.deltaTime);
+        else
+            transform.rotation = Quaternion.Euler(0, 90, 0);
     }
 }
