@@ -9,7 +9,7 @@ public class LeftHandInCandle : MonoBehaviour
         if(collider.gameObject.name== "L_hand")
         {
             Debug.Log("左手进入");
-            EventManagement._Instance.rightHandIn = true;
+            EventManagement._Instance.leftHandIn = true;
         }
     }
 
@@ -18,7 +18,7 @@ public class LeftHandInCandle : MonoBehaviour
         if (collider.gameObject.name == "L_hand")
         {
             Debug.Log("左手退出");
-            EventManagement._Instance.rightHandIn = false;
+            EventManagement._Instance.leftHandIn = false;
         }
     }
 

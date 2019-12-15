@@ -8,7 +8,7 @@ public class HappenEvent : MonoBehaviour
     public Action EventEnd;
     public bool isOn=false;
 
-    public void StartEvent()
+    public virtual void StartEvent()
     {
         isOn = true;
         Debug.Log("事件开始");

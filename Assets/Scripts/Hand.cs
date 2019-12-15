@@ -15,7 +15,7 @@ public class Hand : MonoBehaviour
 
     void Awake()
     {
-        SwtichToLeftHand();
+        selectedHand = null;
         Cursor.visible = false;//隐藏鼠标
     }
 
@@ -36,21 +36,27 @@ public class Hand : MonoBehaviour
 
     public void SetMouseToScreenPosition()
     {
-        screenPosition = Camera.main.WorldToScreenPoint(selectedHand.position);
-        float setX = screenPosition.x;
-        float setY = 1080 - screenPosition.y;
+        if (selectedHand)
+        {
+            screenPosition = Camera.main.WorldToScreenPoint(selectedHand.position);
+            float setX = screenPosition.x;
+            float setY = 1080 - screenPosition.y;
 
-        SetCursorPos((int)setX, (int)setY);//强制设置坐标
-        Debug.Log("更改鼠标位置");
+            SetCursorPos((int)setX, (int)setY);//强制设置坐标
+            Debug.Log("更改鼠标位置");
+        }
     }
 
     void MouseFollow()
     {
-        screenPosition = Camera.main.WorldToScreenPoint(selectedHand.position);
-        mousePositionOnScreen = Input.mousePosition;
-        mousePositionOnScreen.z = screenPosition.z;
-        mousePositionInWorld = Camera.main.ScreenToWorldPoint(mousePositionOnScreen);
-        selectedHand.position = new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, selectedHand.position.z);
+        if (selectedHand)
+        {
+            screenPosition = Camera.main.WorldToScreenPoint(selectedHand.position);
+            mousePositionOnScreen = Input.mousePosition;
+            mousePositionOnScreen.z = screenPosition.z;
+            mousePositionInWorld = Camera.main.ScreenToWorldPoint(mousePositionOnScreen);
+            selectedHand.position = new Vector3(mousePositionInWorld.x, mousePositionInWorld.y, selectedHand.position.z);
+        }
     }
 
     void SwtichHand()

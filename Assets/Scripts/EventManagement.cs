@@ -5,9 +5,9 @@ using UnityEngine;
 public class EventManagement : MonoBehaviour
 {
 
-    public static EventManagement _Instance; 
+    public static EventManagement _Instance;
 
-    public List<HappenEvent> eventlist= new List<HappenEvent>();
+    public List<HappenEvent> eventlist = new List<HappenEvent>();
 
     private HappenEvent currentEvent;
 
@@ -15,8 +15,10 @@ public class EventManagement : MonoBehaviour
     public bool rightHandIn = false;
     public bool firstOut = false;
     public bool SecondOut = false;
+    public bool ThirdOut = false;
     public bool candleIsIn = false;
     public bool bookIsIn = false;
+    public int mothCount = 0;
 
 
     void Awake()
@@ -26,17 +28,18 @@ public class EventManagement : MonoBehaviour
 
     void Start()
     {
+        eventlist.Add(GameObject.Find("Start").GetComponent<HappenEvent>());
         eventlist.Add(GameObject.Find("Event1").GetComponent<HappenEvent>());
         eventlist.Add(GameObject.Find("Event2").GetComponent<HappenEvent>());
-        //TODO 添加第三个关卡
+        eventlist.Add(GameObject.Find("Event3").GetComponent<HappenEvent>());
         //TODO 添加第四个关卡
-        StartCoroutine(Corutine_Wait(5));
+        StartCoroutine(Corutine_Wait(3));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void StartFirstEvent()
@@ -48,13 +51,13 @@ public class EventManagement : MonoBehaviour
 
     void StartNextEvent()
     {
+        eventlist.Remove(eventlist[0]);
         if (eventlist.Count == 0)
         {
             GameManagement._Instance.GameWin();
         }
         else
         {
-            eventlist.Remove(eventlist[0]);
             StartFirstEvent();
         }
 

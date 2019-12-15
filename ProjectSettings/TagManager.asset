@@ -8,6 +8,11 @@ TagManager:
   - Event
   - LeftHand
   - RightHand
+  - SpawnPoint
+  - WayPoint
+  - Moth
+  - Fire
+  - Hand
   layers:
   - Default
   - TransparentFX
