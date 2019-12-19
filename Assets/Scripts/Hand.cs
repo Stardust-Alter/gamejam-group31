@@ -43,7 +43,7 @@ public class Hand : MonoBehaviour
             float setY = 1080 - screenPosition.y;
 
             SetCursorPos((int)setX, (int)setY);//强制设置坐标
-            Debug.Log("更改鼠标位置");
+            //Debug.Log("更改鼠标位置");
         }
     }
 

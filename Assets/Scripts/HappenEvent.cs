@@ -11,7 +11,7 @@ public class HappenEvent : MonoBehaviour
     public virtual void StartEvent()
     {
         isOn = true;
-        Debug.Log("事件开始");
+        //Debug.Log("事件开始");
     }
 
     public void EndEvent()

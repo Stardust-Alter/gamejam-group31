@@ -8,7 +8,7 @@ public class RightHandInCandle : MonoBehaviour
     {
         if (collider.gameObject.name == "R_hand")
         {
-            Debug.Log("右手进入");
+            //Debug.Log("右手进入");
             EventManagement._Instance.rightHandIn = true;
         }
     }
@@ -17,7 +17,7 @@ public class RightHandInCandle : MonoBehaviour
     {
         if (collider.gameObject.name == "R_hand")
         {
-            Debug.Log("右手退出");
+            //Debug.Log("右手退出");
             EventManagement._Instance.rightHandIn = false;
         }
     }

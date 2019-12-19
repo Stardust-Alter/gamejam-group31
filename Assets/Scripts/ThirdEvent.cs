@@ -6,18 +6,27 @@ public class ThirdEvent : HappenEvent
 {
     public float damage = 0.3f;
     public float recover = 0.3f;
-    GameObject[] moth;
+    GameObject moth;
+    GameObject axis;
     // Start is called before the first frame update
     void Start()
     {
-
+        axis = GameObject.Find("WindowAxis");
     }
 
     public override void StartEvent()
     {
         base.StartEvent();
-        moth = GameObject.FindGameObjectsWithTag("Moth");
-        moth[0].GetComponent<Moth>().enabled = true;
+ 
+        axis.GetComponent<WindowScripts>().isOpen = true;
+        SEManagement._Instance.PlaySE("WinOpen");
+        moth = GameObject.FindGameObjectWithTag("Moth");
+        moth.GetComponent<Moth>().enabled = true;
+        SEManagement._Instance.PlaySE("Talk5",0.5f);
+
+
+
+
     }
 
     // Update is called once per frame
@@ -39,4 +48,6 @@ public class ThirdEvent : HappenEvent
             }
         }
     }
+
+
 }

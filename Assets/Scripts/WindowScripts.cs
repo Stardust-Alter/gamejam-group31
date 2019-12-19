@@ -23,10 +23,12 @@ public class WindowScripts : MonoBehaviour
         if (isOpen)
         {
             OpenWindow();
+            
         }
         else
         {
             CloseWindow();
+            
         }
     }
 
@@ -51,6 +53,7 @@ public class WindowScripts : MonoBehaviour
         if (other.tag == "Hand" && Input.GetMouseButtonDown(0))
         {
             isOpen = false;
+            SEManagement._Instance.PlaySE("WinClose");
         }
     }
 }

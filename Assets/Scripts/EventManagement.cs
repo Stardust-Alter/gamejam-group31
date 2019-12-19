@@ -32,6 +32,7 @@ public class EventManagement : MonoBehaviour
         eventlist.Add(GameObject.Find("Event1").GetComponent<HappenEvent>());
         eventlist.Add(GameObject.Find("Event2").GetComponent<HappenEvent>());
         eventlist.Add(GameObject.Find("Event3").GetComponent<HappenEvent>());
+        eventlist.Add(GameObject.Find("Event4").GetComponent<HappenEvent>());
         //TODO 添加第四个关卡
         StartCoroutine(Corutine_Wait(3));
     }

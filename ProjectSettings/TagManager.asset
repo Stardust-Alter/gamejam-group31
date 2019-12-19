@@ -13,6 +13,8 @@ TagManager:
   - Moth
   - Fire
   - Hand
+  - Book
+  - Rain
   layers:
   - Default
   - TransparentFX

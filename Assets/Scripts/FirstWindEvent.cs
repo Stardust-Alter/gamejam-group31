@@ -10,6 +10,12 @@ public class FirstWindEvent : HappenEvent
     {
         base.StartEvent();
         axis.GetComponent<WindowScripts>().isOpen = true;
+        SEManagement._Instance.PlaySE("WinOpen");
+        SEManagement._Instance.PlaySE("WindSound");
+        
+        StartCoroutine(Talk2());
+
+
     }
     void Start()
     {
@@ -36,4 +42,13 @@ public class FirstWindEvent : HappenEvent
         }
     }
 
+
+    IEnumerator Talk2()
+    {
+       
+        yield return new WaitForSeconds(0.5f);
+
+        SEManagement._Instance.PlaySE("Talk2", 0.5f);
+
+    }
 }

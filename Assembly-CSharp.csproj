@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BookCheck.cs" />
+    <Compile Include="Assets\BookEvent.cs" />
+    <Compile Include="Assets\MothChanger.cs" />
     <Compile Include="Assets\Scripts\EventManagement.cs" />
     <Compile Include="Assets\Scripts\FirstWindEvent.cs" />
     <Compile Include="Assets\Scripts\FourthEvent.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Assets\Scripts\SEManagement.cs" />
     <Compile Include="Assets\Scripts\SEPlayer.cs" />
     <Compile Include="Assets\Scripts\ThirdEvent.cs" />
+    <Compile Include="Assets\Scripts\Tuozhuai.cs" />
     <Compile Include="Assets\Scripts\WayPoint.cs" />
     <Compile Include="Assets\Scripts\WindowScripts.cs" />
     <None Include="Assets\Shaders\MyShader.shader" />

@@ -28,5 +28,14 @@ public class SEPlayer : MonoBehaviour
             Destroy(this.gameObject, 0.5f);
         }
     }
+
+    public void init(string path, float gap)
+    {
+        audioSource.clip = ResourceInterface.LoadAudio(path);
+        audioSource.Play();
+        startPlay = true;
+        audioSource.volume = gap;
+    }
+
 }
 

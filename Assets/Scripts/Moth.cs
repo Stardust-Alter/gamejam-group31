@@ -19,6 +19,8 @@ public class Moth : MonoBehaviour
     public bool isRound = false;                        //是否环绕
     public bool isLeave = false;                        //是否离开
     int count = 0;                                      //阻挡计数
+
+   static bool isPlayTalk = false;
     //float circleRate = 0.1f;        //盘旋飞行的概率
 
     // Start is called before the first frame update
@@ -57,6 +59,13 @@ public class Moth : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, direction), (isAway ? awayRotSpeed : rotateSpeed) * timer);
             transform.position += transform.rotation * (Vector3.up) * moveSpeed * Time.deltaTime;
         }
+
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            //Debug.Log("CheatLeave");
+            Leave();
+            //direction = wayTrans[wayTrans.Length - 1].position- transform.position;
+        }
     }
 
     void RotAndMove()
@@ -81,9 +90,14 @@ public class Moth : MonoBehaviour
             awayPoint = transform.position + (direction - Vector3.Project(direction, raycastHit.normal)) * 2;
             isAway = true;
             count++;
-            Debug.Log("count=" + count);
+            //Debug.Log("count=" + count);
             if (count >= 3)
             {
+                if(isPlayTalk==false)
+                { 
+                    SEManagement._Instance.PlaySE("TtoF2");
+                    isPlayTalk = true;
+                }
                 isLeave = true;
             }
         }

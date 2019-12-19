@@ -13,6 +13,7 @@ public class GameStart : HappenEvent
     float color = 0f;
     bool isLight = false;
     float timer = 0;
+    
     public override void StartEvent()
     {
         base.StartEvent();
@@ -21,6 +22,7 @@ public class GameStart : HappenEvent
         darkPercent = GameObject.FindGameObjectWithTag("MainCamera");
         fire = GameObject.FindGameObjectWithTag("Fire");
         darkPercent.GetComponent<ScreenEffects>().darkPercent = 1;
+        StartCoroutine(PlayTalk1());
         GameObject.Find("Lamp").SetActive(false);
 
     }
@@ -38,6 +40,7 @@ public class GameStart : HappenEvent
             if (Input.GetMouseButtonDown(0))
             {
                 isLight = true;
+                SEManagement._Instance.PlaySE("MatchFire");
                 startTips.SetActive(false);
             }
 
@@ -61,5 +64,15 @@ public class GameStart : HappenEvent
                 EndEvent();
             }
         }
+    }
+
+    IEnumerator PlayTalk1()
+    {
+        SEManagement._Instance.PlaySE("LampDown");
+
+        yield return new WaitForSeconds(0.7f);
+
+        SEManagement._Instance.PlaySE("Talk1",0.5f); 
+        
     }
 }

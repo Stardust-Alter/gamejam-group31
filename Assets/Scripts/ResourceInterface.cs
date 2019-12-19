@@ -23,6 +23,7 @@ public static class ResourceInterface
 
     public static GameObject InstantiateGO(string path, Transform parent = null, bool inWorldSpace = true)
     {
+     
         GameObject go = GameObject.Instantiate(Resources.Load(path), parent, inWorldSpace) as GameObject;
         if (go)
         {
@@ -37,7 +38,7 @@ public static class ResourceInterface
         Texture2D texture = (Texture2D)Load(path);
         if (!texture)
         {
-            Debug.LogWarning("LoadSprite null");
+            //Debug.LogWarning("LoadSprite null");
             return null;
         }
         Rect rect = new Rect(0f, 0f, texture.width, texture.height);
@@ -53,10 +54,10 @@ public static class ResourceInterface
     public static Texture2D LoadTexture(string path)
     {
         Texture2D texture = (Texture2D)Load(path);
-        if (!texture)
-        {
-            Debug.LogError(path);
-        }
+        //if (!texture)
+        //{
+        //    Debug.LogError(path);
+        //}
         return texture;
     }
 
@@ -65,7 +66,7 @@ public static class ResourceInterface
         AudioClip audio = (AudioClip)Load(path);
         if (!audio)
         {
-            Debug.LogError(path);
+            //Debug.LogError(path);
         }
         return audio;
     }
